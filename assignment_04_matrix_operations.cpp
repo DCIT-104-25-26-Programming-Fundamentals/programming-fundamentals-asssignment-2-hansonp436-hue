@@ -65,3 +65,82 @@
 #include <string>
 using namespace std;
 
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+// Function to read a matrix
+void readMatrix(int matrix[10][10], int rows, int cols)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            cout << "Enter element [" << i << "][" << j << "]: ";
+            cin >> matrix[i][j];
+        }
+    }
+}
+
+// Function to display a matrix
+void displayMatrix(int matrix[10][10], int rows, int cols)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            cout << setw(5) << matrix[i][j];
+        }
+        cout << endl;
+    }
+}
+
+// Part A - Transpose a matrix
+void transposeMatrix(int matrix[10][10], int transpose[10][10], int rows, int cols)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            transpose[j][i] = matrix[i][j];
+        }
+    }
+}
+
+// Part B - Add two matrices
+void addMatrices(int A[10][10], int B[10][10], int result[10][10], int rows, int cols)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            result[i][j] = A[i][j] + B[i][j];
+        }
+    }
+}
+
+// Part C - Multiply two matrices
+void multiplyMatrices(int A[10][10], int B[10][10], int result[10][10],
+                      int rowsA, int colsA, int colsB)
+{
+    for (int i = 0; i < rowsA; i++)
+    {
+        for (int j = 0; j < colsB; j++)
+        {
+            result[i][j] = 0;
+
+            for (int k = 0; k < colsA; k++)
+            {
+                result[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}
+
+int main()
+{
+    int choice;
+
+    cout << "Matrix Operations Menu" << endl;
+    cout << "1. Transpose Matrix" <<
